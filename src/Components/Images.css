@@ -1,0 +1,20 @@
+.left-images{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.small-images{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-images img{
+    width: 5vw;
+    border-radius: 10px;
+}
+.big-img{
+    width: 25vw;
+    border-radius: 10px;
+}

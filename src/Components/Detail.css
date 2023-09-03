@@ -1,0 +1,21 @@
+.right-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    
+}
+
+.right-data h6{
+    color: orange;
+}
+
+.add-btn{
+    color: white;
+    background-color: orange;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
