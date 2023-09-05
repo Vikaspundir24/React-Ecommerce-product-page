@@ -3,10 +3,10 @@ import "./HomePage.css";
 import Images from "./Images";
 
 
-function HomePage() {
+function HomePage({mockImages}) {
   return (
     <div className="home-page">
-      <Images/>
+      <Images mockImages = {mockImages}/>
       <Detail/>
     </div>
   );

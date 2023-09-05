@@ -4,18 +4,35 @@
     justify-content: center;
     align-content: center;
     gap: 10px;
+    font-size: 16px;
     
 }
 
 .right-data h6{
-    color: orange;
+    color:hsl(26, 100%, 55%);
+}
+.total-items-buttons{
+    display: flex;
+    gap: 20px;
+}
+.total-items-buttons p{
+    background-color: hsl(223, 64%, 98%);
+    padding: 10px 0px;
+    border-radius: 10px;
+}
+.total-items-buttons p span{
+    color: hsl(26, 100%, 55%);
+    font-weight: 800;
+    margin: 30px;
+    font-size: 20px;
 }
 
 .add-btn{
     color: white;
-    background-color: orange;
+    background-color: hsl(26, 100%, 55%);
     border: none;
     outline: none;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    font-weight: 800;
     border-radius: 10px;
 }
