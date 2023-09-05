@@ -1,16 +1,16 @@
 import { useState } from "react";
 import "./Images.css";
 
-function Images({ mockImages }, {openModal} ) {
-  const [mainImage, setMainImage] = useState(mockImages[0].mainSrc);
-
+function Images(props) {
+  const [mainImage, setMainImage] = useState(props.mockImages[0].mainSrc);
+ 
   return (
     <div className="left-images">
       <div className="big-image">
-        <img className="big-img" src={mainImage} onClick={() => openModal()}></img>
+        <img className="big-img" onClick={props.open} src={mainImage}></img>
       </div>
       <div className="small-images">
-        {mockImages.map((img) => (
+        {props.mockImages.map((img) => (
           <img
             src={img.thumbnailSrc}
             key={img.id}

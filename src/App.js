@@ -31,17 +31,20 @@ function App() {
 
   const[modalIsOpen , setModalIsOpen] = useState(false)
 
-  const modalHandler = () => {
+  function closeModalHandler() {
+    setModalIsOpen(false)
+  }
+  
+  function openModalHandler() {
     setModalIsOpen(true)
   }
-  const closeModalHandler = () => {
-    setModalIsOpen(true)
-  }
+
+
   return (
     <div className="app">
       <Navbar />
-      <HomePage mockImages={mockImages} />
-      {!modalIsOpen ?   <Modal mockImages={mockImages}  openModal = {modalHandler} closeModal = {closeModalHandler}/> : "" }
+      <HomePage mockImages={mockImages} open = {openModalHandler}/>
+      {modalIsOpen ?   <Modal mockImages={mockImages} open = {openModalHandler} close = {closeModalHandler}  /> : "" }
     
     </div>
   );

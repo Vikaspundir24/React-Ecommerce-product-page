@@ -3,10 +3,11 @@ import "./HomePage.css";
 import Images from "./Images";
 
 
-function HomePage({mockImages}) {
+function HomePage(props) {
+  
   return (
     <div className="home-page">
-      <Images mockImages = {mockImages}/>
+      <Images mockImages = {props.mockImages} open = {props.open} />
       <Detail/>
     </div>
   );
