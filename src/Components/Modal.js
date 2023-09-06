@@ -2,35 +2,40 @@ import { useState } from "react";
 import "./Modal.css";
 
 function Modal(props) {
+  const mockImages = props.mockImages;
+  const length = mockImages.length;
   const [index, setIndex] = useState(0);
-  const [mainImage, setMainImage] = useState(props.mockImages[index].mainSrc);
+  const [mainImage, setMainImage] = useState(mockImages[index].mainSrc);
+
+  const imageChangeHandler = (event) => {
+    let id = event.target.id
+    setIndex(id);
+    setMainImage(mockImages[id].mainSrc);
+   
+  };
 
   const prevImage = () => {
-    console.log("prev");
-    if (index > 0) {
-      setIndex((prevIndex) => prevIndex - 1);
-      setMainImage(props.mockImages[index].mainSrc);
-      console.log("prev");
-    } else if (index < 1) {
-      setIndex((prevIndex) => prevIndex + 3);
-      console.log("prev");
-      setMainImage(props.mockImages[index].mainSrc);
+    if (index === 0) {
+      setMainImage(mockImages[length-1].mainSrc);
+      setIndex(length-1)
     }
+    else{
+      setMainImage(mockImages[index-1].mainSrc);
+      setIndex(index === 0 ? length - 1 : index - 1);
+    }
+   
   };
   const nextImage = () => {
-    if (index > 2) {
-      setIndex(0);
-      setMainImage(props.mockImages[index].mainSrc);
-      console.log("next");
-      return index
-    } else if (index >= 0) {
-      setIndex((prevIndex) => prevIndex + 1);
-      setMainImage(props.mockImages[index].mainSrc);
-      console.log("next");
-      return index
+    if (index === 3) {
+      setMainImage(mockImages[length-3].mainSrc);
+      setIndex(length-3)
+    }
+    else{
+      setMainImage(mockImages[index+1].mainSrc);
+      setIndex(index === 3 ? length - 3 : index + 1);
     }
   };
-  
+
   return (
     <div className="modal-default">
       <h3 className="close-icon" onClick={props.close}>
@@ -45,18 +50,19 @@ function Modal(props) {
         ></img>
         <img className="main-image" src={mainImage}></img>
         <img
-          onClick={nextImage}
+          onClick={() => nextImage()}
           className="next-icon"
           src={require("../images/icon-next.svg").default}
         ></img>
       </div>
 
       <div className="small-images">
-        {props.mockImages.map((img) => (
+        {mockImages.map((img) => (
           <img
-            src={img.thumbnailSrc}
+            id={img.id}
             key={img.id}
-            onClick={() => setMainImage(img.mainSrc)}
+            src={img.thumbnailSrc}
+            onClick={(e) => imageChangeHandler(e)}
           />
         ))}
       </div>

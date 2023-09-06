@@ -19,6 +19,7 @@
     background-color: hsl(223, 64%, 98%);
     padding: 10px 0px;
     border-radius: 10px;
+    font-weight: 800;
 }
 .total-items-buttons p span{
     color: hsl(26, 100%, 55%);
@@ -35,4 +36,36 @@
     padding: 10px 40px;
     font-weight: 800;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.add-btn:hover{
+    background-color: hsl(26, 100%, 65%);
+}
+span{
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.price-tag{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800 ;
+}
+
+.price-tag h5{
+    font-size: 18px;
+}
+.price-tag p{
+    background-color:  hsl(26, 100%, 95%); ;
+    color: hsl(26, 100%, 55%);
+    padding: 2px 3px;
+    font-size: 14px;
+
+}
+
+.original-price{
+    color: hsl(220, 14%, 75%);
+    text-decoration: line-through;
 }

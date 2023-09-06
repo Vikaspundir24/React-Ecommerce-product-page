@@ -8,7 +8,7 @@ function HomePage(props) {
   return (
     <div className="home-page">
       <Images mockImages = {props.mockImages} open = {props.open} />
-      <Detail/>
+      <Detail openCart = {props.openCart} updateCart = {props.updateCart} />
     </div>
   );
 }

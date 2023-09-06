@@ -1,6 +1,33 @@
-import "./Detail.css"
+import { useState } from "react";
+import "./Detail.css";
 
-function Detail() {
+function Detail(props) {
+  const [totalItem, setTotalItem] = useState(0);
+
+  const decreaseValue = () => {
+    if (totalItem == 0) {
+      alert("Already 0");
+    } else {
+      setTotalItem((prevTotalItem) => prevTotalItem - 1);
+    }
+  };
+  const increaseValue = () => {
+    setTotalItem((prevTotalItem) => prevTotalItem + 1);
+  };
+
+  const addToCart = () => {
+    if(totalItem != 0)
+    {
+      props.updateCart(totalItem)
+      props.openCart(totalItem)
+    }
+    else{
+      props.updateCart(totalItem)
+      alert("Add Something to cart")
+    }
+    
+  };
+
   return (
     <div className="right-data">
       <h6>SNEAKER COMPANY</h6>
@@ -17,9 +44,13 @@ function Detail() {
       <p className="original-price">$250.00</p>
       <div className="total-items-buttons">
         <p>
-          <span>-</span>0<span>+</span>
+          <span onClick={decreaseValue}>-</span>
+          {totalItem}
+          <span onClick={increaseValue}>+</span>
         </p>
-        <button className="add-btn">Add To Cart</button>
+        <button onClick={addToCart} className="add-btn">
+          Add To Cart
+        </button>
       </div>
     </div>
   );
